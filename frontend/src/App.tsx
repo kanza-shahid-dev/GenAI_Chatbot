@@ -1,8 +1,7 @@
-"use client";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Home() {
+export default function App() {
   type Message = {
     id: number;
     type: "user" | "bot";
@@ -11,6 +10,7 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const threadId = uuidv4();
 
   useEffect(() => {
@@ -106,13 +106,14 @@ export default function Home() {
               Thinking...
             </div>
           )}
+          <div ref={messagesEndRef}></div>
         </div>
 
         <div className="fixed inset-x-0 bottom-0 flex items-center justify-center bg-neutral-950">
           <div className="bg-neutral-800 p-2 rounded-3xl w-full max-w-4xl mb-8">
             <form onSubmit={handleSubmit}>
               <textarea
-                className="w-full resize-none outline-0 p-3"
+                className="w-full resize-none outline-0 p-3 bg-inherit"
                 rows={1.5}
                 onKeyDown={handleKeyDown}
                 ref={textareaRef}

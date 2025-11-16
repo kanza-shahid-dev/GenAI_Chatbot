@@ -30,8 +30,7 @@ export async function generate(userMessage, threadId) {
     },
   ];
 
-  const messages = cache.get(threadId);
-  if (!messages) return baseMessages;
+  let messages = cache.get(threadId) ?? baseMessages;
 
   messages.push({ role: "user", content: userMessage });
 
