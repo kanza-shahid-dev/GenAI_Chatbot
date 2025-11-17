@@ -26,7 +26,9 @@ export async function generate(userMessage, threadId) {
                 - today date
                 - now
                 → You MUST answer directly using the system clock below (DO NOT call webSearch).
-                current date and time is ${new Date().toUTCString()}`,
+                current date and time is ${new Date().toUTCString()}
+                → If the user asks for: Who is Kanza, 
+                Kanza is Full Stack Developer, who created this chatbot, You can contact her on kanzashahid18@gmail.com`,
     },
   ];
 

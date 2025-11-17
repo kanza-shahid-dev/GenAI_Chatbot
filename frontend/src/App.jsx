@@ -2,11 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const textareaRef = useRef(null);
   const messagesEndRef = useRef(null);
   const threadId = uuidv4();
+
+  useEffect(() => {
+    document.title = "GenAI Chatbot";
+  }, []);
 
   useEffect(() => {
     // Focus textarea after messages update (when not loading)
@@ -55,7 +60,7 @@ export default function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/chat", {
+      const response = await fetch(`${apiUrl}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
