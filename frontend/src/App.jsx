@@ -89,8 +89,8 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-neutral-950 text-white overflow-x-hidden">
-      <div className="container mx-auto max-w-4xl pb-45">
-        <div className="my-6 p-4 rounded-xl">
+      <div className="container mx-auto max-w-4xl h-[80vh] flex flex-col">
+        <div className="flex-1 overflow-y-auto my-6 p-4 rounded-xl">
           {messages.map((message) => (
             <div
               key={message.id}
