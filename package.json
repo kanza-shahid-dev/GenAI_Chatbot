@@ -5,8 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "install-frontend": "npm ci --prefix frontend --include=dev",
-    "build-frontend": "npx vite build --prefix frontend",
+    "install-frontend": "cd frontend && npm ci --include=dev",
+    "build-frontend": "cd frontend && npm run build",
     "build-backend": "npm ci --prefix backend",
     "build": "npm run build-backend && npm run install-frontend && npm run build-frontend",
     "start": "node backend/index.js"
