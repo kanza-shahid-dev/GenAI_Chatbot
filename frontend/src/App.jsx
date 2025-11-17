@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const textareaRef = useRef(null);
@@ -88,9 +88,9 @@ export default function App() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-neutral-950 text-white overflow-x-hidden">
+    <div className="flex min-h-screen items-center justify-center bg-neutral-950 text-white overflow-hidden">
       <div className="container mx-auto max-w-4xl h-[80vh] flex flex-col">
-        <div className="flex-1 overflow-y-auto my-6 p-4 rounded-xl">
+        <div className="flex-1 overflow-y-auto my-6 mb-[90px] p-4 rounded-xl custom-scrollbar">
           {messages.map((message) => (
             <div
               key={message.id}
