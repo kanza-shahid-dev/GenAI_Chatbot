@@ -10,7 +10,7 @@
     "dev": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "kanza",
   "license": "ISC",
   "dependencies": {
     "@tavily/core": "^0.5.12",
